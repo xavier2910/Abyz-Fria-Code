@@ -1,4 +1,4 @@
 {
-    "sketch": "abyz_fria.ino",
+    "sketch": "abyz_fria\\abyz_fria.ino",
     "board": "arduino:avr:uno"
 }
