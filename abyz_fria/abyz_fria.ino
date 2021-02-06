@@ -5,16 +5,6 @@
 
 SimpleDHT11 tempSensor;
 
-bool readTemperatureSensor(byte &temperature, byte &humidity)
-{
-    if (tempSensor.read(DHT_PIN, &temperature, &humidity, NULL))
-    {
-        Serial.print("Read DHT11 failed.");
-        return false;
-    }
-    return true;
-}
-
 void setup()
 {
     Serial.begin(9600);
@@ -24,12 +14,15 @@ void loop()
 {
     byte temperature = 0;
     byte humidity = 0;
-    if (readTemperatureSensor(temperature, humidity))
+    if (tempSensor.read(DHT_PIN, &temperature, &humidity, NULL))
     {
-        Serial.print("Sample OK: ");
-        Serial.print((int)temperature);
-        Serial.print(" *C, ");
-        Serial.print((int)humidity);
-        Serial.println(" %");
+        Serial.print("Read DHT11 failed.");
+        return;
     }
+
+    Serial.print("Sample OK: ");
+    Serial.print((int)temperature);
+    Serial.print(" *C, ");
+    Serial.print((int)humidity);
+    Serial.println(" %");
 }
