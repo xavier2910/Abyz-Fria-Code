@@ -3,6 +3,7 @@
         {
             "name": "Win32",
             "includePath": [
+                "C:\\Users\\Xavier\\Documents\\Arduino\\libraries\\SimpleDHT",
                 "C:\\Program Files (x86)\\Arduino\\tools\\**",
                 "C:\\Users\\Xavier\\Documents\\Arduino\\libraries\\**",
                 "C:\\Program Files (x86)\\Arduino\\libraries\\**",

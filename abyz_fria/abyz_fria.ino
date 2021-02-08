@@ -1,5 +1,5 @@
-#include <Wire.h>                       // I2C library, primarily for altimeter
-#include ".\Libs\SimpleDHT\SimpleDHT.h" // Temperature & humidity sensor library
+#include <SimpleDHT.h> // Temperature & humidity sensor library
+#include <Wire.h>      // I2C library, primarily for altimeter
 
 #define DHT_PIN 2 //TODO: set this pin
 
