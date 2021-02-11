@@ -1,7 +1,7 @@
 #ifndef Abyz_Fria_h
 #define Abyz_Fria_h
 
-#include <SimpleDHT.h>
+#include "TempSensor.cpp
 
 class Abyz_Fria
 {
@@ -11,7 +11,7 @@ public:
     void setup(int);
 
 private:
-    SimpleDHT11 _dht11;
+    TempSensor _dht11;
     int _dht11Pin;
 };
 

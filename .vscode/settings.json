@@ -3,5 +3,5 @@
     "editor.formatOnSave": true,
     "editor.formatOnPaste": true,
     "editor.formatOnType": true,
-    "arduino.path": "C:\\Program Files (x86)\\Arduino"
+    "arduino.path": "C:\\Program Files (x86)\\Arduino",
 }
