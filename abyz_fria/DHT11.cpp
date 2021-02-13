@@ -4,6 +4,7 @@
 #include "TempSensor.cpp"
 #include <SimpleDHT.h>
 
+#include <StandardCplusplus.h>
 #include <memory>
 
 class DHT11Sensor : public TempSensor

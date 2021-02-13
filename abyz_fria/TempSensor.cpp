@@ -1,6 +1,7 @@
 #ifndef TempSensor_h
 #define TempSensor_h
 
+#include <StandardCplusplus.h>
 #include <memory>
 
 class TempSensor
