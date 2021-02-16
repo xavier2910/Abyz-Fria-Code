@@ -1,15 +1,14 @@
 #ifndef TempSensor_h
 #define TempSensor_h
 
-#include <StandardCplusplus.h>
-#include <memory>
+using namespace std;
 
 class TempSensor
 {
 public:
     virtual byte getTemperature(int);
     virtual byte getHumidity(int);
-    virtual unique_ptr<byte[]> getData(int);
+    virtual byte *getData(int);
 };
 
 #endif

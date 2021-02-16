@@ -1,8 +1,24 @@
-#include "Abyz_Fria.h"
+#ifndef Abyz_Fria_h
+#define Abyz_Fria_h
 
-void Abyz_Fria::setup(int dht11Pin)
+#include "TempSensor.cpp"
+
+class Abyz_Fria
 {
-    Serial.begin(9600);
+public:
+    int main()
+    {
+        return 0;
+    }
 
-    _dht11Pin = dht11Pin;
-}
+    void configTempSensor(int)
+    {
+        _dht11Pin = pin;
+    }
+
+private:
+    TempSensor _dht11;
+    int _dht11Pin;
+};
+
+#endif
