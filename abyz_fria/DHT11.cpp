@@ -5,7 +5,7 @@
 #include <SimpleDHT.h>
 
 #include <StandardCplusplus.h>
-#include <func_exception>
+#include <stdexcept>
 
 class DHT11Sensor : public TempSensor
 {
@@ -22,6 +22,12 @@ public:
         byte humid = 0;
         int err = _sensor.read(pin, NULL, &humid, NULL);
         return humid;
+    }
+
+    byte *getData(int pin) override
+    {
+        std::logic_error err("not implemented");
+        throw err;
     }
 
 private:

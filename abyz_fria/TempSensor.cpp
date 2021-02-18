@@ -1,14 +1,12 @@
 #ifndef TempSensor_h
 #define TempSensor_h
 
-using namespace std;
-
 class TempSensor
 {
 public:
-    virtual byte getTemperature(int);
-    virtual byte getHumidity(int);
-    virtual byte *getData(int);
+    virtual byte getTemperature(int) = 0;
+    virtual byte getHumidity(int) = 0;
+    virtual byte *getData(int) = 0;
 };
 
 #endif
