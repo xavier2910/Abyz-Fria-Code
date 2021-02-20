@@ -3,7 +3,7 @@
         {
             "name": "Win32",
             "includePath": [
-                "C:\\Users\\Xavier\\Documents\\Arduino\\libraries\\AUnit-1.5.1\\AUnit-1.5.1\\src",
+                "C:\\Users\\Xavier\\Documents\\Arduino\\libraries\\AUnit-1.5.1",
                 "C:\\Users\\Xavier\\Documents\\Arduino\\libraries\\StandardCplusplus",
                 "C:\\Users\\Xavier\\Documents\\Arduino\\libraries\\SimpleDHT",
                 "C:\\Program Files (x86)\\Arduino\\tools\\**",
