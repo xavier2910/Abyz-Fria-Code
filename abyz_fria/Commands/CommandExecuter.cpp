@@ -4,45 +4,43 @@
 #include <StandardCplusplus.h>
 #include <queue>
 #include <utility.h>
+#include <functional>
 
 #include "Command.cpp"
 
 class CommandExecuter
 {
 private:
-    std::queue<std::pair<Command, bool (*)(unsigned long)>> _commands;
+    std::queue<std::pair<Command *, std::unary_function<bool, bool>>> _commands;
 
 public:
-    CommandExecuter();
+    virtual void addCommand(Command *, std::unary_function<bool, bool>);
 
-    void addCommand(Command *, bool (*)(unsigned long));
-
-    void executeCommands();
+    virtual void executeCommands();
 };
 
-CommandExecuter::CommandExecuter()
+void CommandExecuter::addCommand(Command *command, std::unary_function<bool, bool> nullaryPredicate)
 {
+    _commands.push(std::make_pair(command, nullaryPredicate));
 }
 
-void CommandExecuter::addCommand(Command *command, bool (*condition)(unsigned long))
-{
-    _commands.push(std::make_pair(*command, condition));
-}
-
+/* TODO: move to SequentialCommandExecuter
 void CommandExecuter::executeCommands()
 {
     while (!_commands.empty())
     {
-        if (_commands.front().second(millis()))
+        bool dummy = false;
+
+        if ((_commands.front().second)(dummy))
         {
-            _commands.front().first.begin();
+            _commands.front().first->begin();
         }
-        if (_commands.front().first.canExecute())
+        if (_commands.front().first->canExecute())
         {
-            _commands.front().first.execute();
+            _commands.front().first->execute();
             _commands.pop();
         }
     }
 }
-
+*/
 #endif

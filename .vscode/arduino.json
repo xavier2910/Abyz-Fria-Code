@@ -1,4 +1,5 @@
 {
-    "sketch": "abyz_fria\\abyz_fria.ino",
-    "board": "arduino:avr:uno"
+    "sketch": "abyz_fria\\Abyz_Fria_Tests.ino",
+    "board": "arduino:avr:uno",
+    "port": "COM3"
 }

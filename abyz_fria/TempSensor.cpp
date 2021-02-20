@@ -3,10 +3,19 @@
 
 class TempSensor
 {
+protected:
+    int _pin;
+
 public:
-    virtual byte getTemperature(int) = 0;
-    virtual byte getHumidity(int) = 0;
-    virtual byte *getData(int) = 0;
+    TempSensor(int);
+
+    virtual byte getTemperature() = 0;
+    virtual byte getHumidity() = 0;
+    virtual byte *getData() = 0;
 };
+
+TempSensor::TempSensor(int pin) : _pin(pin)
+{
+}
 
 #endif
