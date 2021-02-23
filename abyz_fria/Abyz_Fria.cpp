@@ -1,7 +1,7 @@
 #ifndef Abyz_Fria_h
 #define Abyz_Fria_h
 
-#include "TempSensor.cpp"
+#include "DHT11.cpp"
 
 class Abyz_Fria
 {
@@ -11,13 +11,13 @@ public:
         return 0;
     }
 
-    void configTempSensor(int)
+    void configTempSensor(int pin)
     {
         _dht11Pin = pin;
     }
 
 private:
-    TempSensor _dht11;
+    DHT11Sensor _dht11;
     int _dht11Pin;
 };
 
