@@ -3,6 +3,7 @@
 
 class TempSensor
 {
+
 protected:
     int _pin;
 

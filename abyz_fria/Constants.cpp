@@ -6,7 +6,8 @@ static class Constants
 public:
     static class DHT11
     {
-        int kPin = -1;
+    public:
+        static const int kPin = -1;
     };
 };
 

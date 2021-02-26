@@ -2,6 +2,7 @@
 #define DHT11_h
 
 #include "TempSensor.cpp"
+#include "Constants.cpp"
 #include <SimpleDHT.h>
 
 #include <StandardCplusplus.h>
@@ -10,6 +11,10 @@
 class DHT11Sensor : public TempSensor
 {
 public:
+    DHT11Sensor() : TempSensor(Constants::DHT11::kPin)
+    {
+    }
+
     float getTemperature() override
     {
         float temp = 0;
