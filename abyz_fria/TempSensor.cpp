@@ -9,9 +9,8 @@ protected:
 public:
     TempSensor(int);
 
-    virtual byte getTemperature() = 0;
-    virtual byte getHumidity() = 0;
-    virtual byte *getData() = 0;
+    virtual float getTemperature() = 0;
+    virtual float getHumidity() = 0;
 };
 
 TempSensor::TempSensor(int pin) : _pin(pin)

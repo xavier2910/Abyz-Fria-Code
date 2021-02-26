@@ -10,25 +10,18 @@
 class DHT11Sensor : public TempSensor
 {
 public:
-    byte getTemperature() override
+    float getTemperature() override
     {
-        byte temp = 0;
-        int err = _sensor.read(_pin, &temp, NULL, NULL);
+        float temp = 0;
+        int err = _sensor.read2(_pin, &temp, NULL, NULL);
         return temp;
     }
 
-    byte getHumidity() override
+    float getHumidity() override
     {
-        byte humid = 0;
-        int err = _sensor.read(_pin, NULL, &humid, NULL);
+        float humid = 0;
+        int err = _sensor.read2(_pin, NULL, &humid, NULL);
         return humid;
-    }
-
-    byte *getData() override
-    {
-        /*std::logic_error err("not implemented");
-        throw err;*/
-        // TODO: await fix
     }
 
 private:

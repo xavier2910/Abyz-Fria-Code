@@ -2,16 +2,18 @@
 
 #include <AUnit.h>
 
-#include "TempSensor.cpp"
 #include "TempSensorDummy.cpp"
 
-test(tempSensor) // TODO: await fix
+test(tempSensor)
 {
     TempSensorDummy temp(-1);
 
-    assertEqual(temp.getTemperature(), 20);
-    assertEqual(temp.getHumidity(), 20);
-    assertEqual(temp.getData(), nullptr);
+    assertEqual(temp.getTemperature(), 20.0f);
+    assertEqual(temp.getHumidity(), 20.0f);
+}
+
+test(command)
+{
 }
 
 void setup()

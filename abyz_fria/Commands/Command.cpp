@@ -14,7 +14,14 @@ public:
     {
         _canExecute = true;
     }
-    virtual void operator()() = 0;
+    void operator()()
+    {
+        if (_canExecute)
+            this->execute();
+    }
+
+    virtual void execute() = 0;
+
     virtual void end()
     {
         _canExecute = false;

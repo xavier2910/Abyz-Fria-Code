@@ -8,15 +8,13 @@
 
 #include "Command.cpp"
 
-class CommandExecuter
+class CommandExecuter : public Command
 {
 private:
-    std::queue<std::pair<Command *, std::unary_function<bool, bool>>> _commands;
+    std::queue<std::pair<Command *, std::unary_function<bool, bool>>> _commands; //TODO: create own type for function
 
 public:
     virtual void addCommand(Command *, std::unary_function<bool, bool>);
-
-    virtual void executeCommands();
 };
 
 void CommandExecuter::addCommand(Command *command, std::unary_function<bool, bool> nullaryPredicate)
