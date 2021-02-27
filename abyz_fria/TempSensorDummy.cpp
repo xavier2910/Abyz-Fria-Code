@@ -6,10 +6,14 @@
 class TempSensorDummy : public TempSensor
 {
 public:
+    TempSensorDummy();
+
     float getTemperature() override;
 
     float getHumidity() override;
 };
+
+TempSensorDummy::TempSensorDummy() : TempSensor(-1) {}
 
 float TempSensorDummy::getTemperature()
 {
