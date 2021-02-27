@@ -3,10 +3,11 @@
 #include <AUnit.h>
 
 #include "TempSensorDummy.cpp"
+#include "Commands/CommandDummy.cpp"
 
 test(tempSensor)
 {
-    TempSensorDummy temp(-1);
+    TempSensorDummy temp;
 
     assertEqual(temp.getTemperature(), 20.0f);
     assertEqual(temp.getHumidity(), 20.0f);
@@ -14,6 +15,37 @@ test(tempSensor)
 
 test(command)
 {
+    CommandDummy command;
+    for (int i = 0; i < 100; ++1)
+    {
+        if (i == 9)
+        {
+            command.begin();
+        }
+        if (i == 89)
+        {
+            command.end();
+        }
+        command();
+        if (i >= 9 && i < 89)
+        {
+            assertTrue(command.hasSetup);
+            assertFalse(command.torndown);
+            assertEqual(command.executedTime, i - 9);
+        }
+        else if (i < 9)
+        {
+            assertFalse(command.hasSetup);
+            assertFalse(command.torndown);
+            assertEqual(command.executedTime, 0);
+        }
+        else if (i >= 89)
+        {
+            assertTrue(command.hasSetup);
+            assertTrue(command.torndown);
+            assertEqual(command.executedTime, 80)
+        }
+    }
 }
 
 void setup()
