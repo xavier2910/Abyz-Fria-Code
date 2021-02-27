@@ -23,7 +23,7 @@ void CommandExecuter::addCommand(Command *command, std::unary_function<bool, boo
 }
 
 /* TODO: move to SequentialCommandExecuter
-void CommandExecuter::executeCommands()
+void SequentialCommandExecuter::execute()
 {
     while (!_commands.empty())
     {
