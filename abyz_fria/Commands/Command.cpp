@@ -13,6 +13,7 @@ public:
     virtual void begin()
     {
         _canExecute = true;
+        this->setup();
     }
     void operator()()
     {
@@ -20,10 +21,13 @@ public:
             this->execute();
     }
 
+    virtual void setup() = 0;
     virtual void execute() = 0;
+    virtual void teardown() = 0;
 
     virtual void end()
     {
+        this->teardown();
         _canExecute = false;
         _isFinished = true;
     }
