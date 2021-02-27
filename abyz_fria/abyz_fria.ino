@@ -1,3 +1,4 @@
+/*
 #include "Abyz_Fria.cpp"
 
 #define DHT_PIN 2 //TODO: set this pin
@@ -15,3 +16,4 @@ void setup()
 void loop()
 {
 }
+//*/

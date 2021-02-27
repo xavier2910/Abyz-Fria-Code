@@ -16,7 +16,7 @@ test(tempSensor)
 test(command)
 {
     CommandDummy command;
-    for (int i = 0; i < 100; ++1)
+    for (int i = 0; i < 100; ++i)
     {
         if (i == 9)
         {
@@ -43,7 +43,7 @@ test(command)
         {
             assertTrue(command.hasSetup);
             assertTrue(command.torndown);
-            assertEqual(command.executedTime, 80)
+            assertEqual(command.executedTime, 80);
         }
     }
 }
