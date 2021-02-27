@@ -1,10 +1,10 @@
 #ifndef Constants_h
 #define Constants_h
 
-static class Constants
+class Constants
 {
 public:
-    static class DHT11
+    class DHT11
     {
     public:
         static const int kPin = -1;
