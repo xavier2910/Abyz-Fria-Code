@@ -11,14 +11,8 @@ public:
         return 0;
     }
 
-    void configTempSensor(int pin)
-    {
-        _dht11Pin = pin;
-    }
-
 private:
     DHT11Sensor _dht11;
-    int _dht11Pin;
 };
 
 #endif

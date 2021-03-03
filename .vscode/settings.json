@@ -56,5 +56,5 @@
         "valarray": "cpp",
         "vector": "cpp"
     },
-    "workbench.colorTheme": "Solarized Light",
+    "C_Cpp.default.enableConfigurationSquiggles": false,
 }
