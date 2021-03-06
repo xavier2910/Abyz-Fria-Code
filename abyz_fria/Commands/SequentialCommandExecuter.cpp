@@ -14,7 +14,7 @@ class SequentialCommandExecuter : public CommandExecuter
         _commands.front().first->operator()();
         if (_commands.front().first->isFinished())
         {
-            _commands.pop();
+            _commands.erase(_commands.begin());
         }
     }
 };
