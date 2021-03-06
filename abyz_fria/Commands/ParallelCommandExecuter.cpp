@@ -5,7 +5,10 @@
 
 class ParallelCommandExecuter : public CommandExecuter
 {
-public:
+protected:
+    virtual void setup() override {}
+    virtual void teardown() override {}
+
     void execute() override
     {
         for (auto element = _commands.end(); element != _commands.begin(); --element)

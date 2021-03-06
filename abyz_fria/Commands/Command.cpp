@@ -21,10 +21,6 @@ public:
             this->execute();
     }
 
-    virtual void setup() = 0;
-    virtual void execute() = 0;
-    virtual void teardown() = 0;
-
     virtual void end()
     {
         this->teardown();
@@ -41,6 +37,11 @@ public:
     {
         return _isFinished;
     }
+
+protected:
+    virtual void setup() = 0;
+    virtual void execute() = 0;
+    virtual void teardown() = 0;
 
 private:
     bool _canExecute;

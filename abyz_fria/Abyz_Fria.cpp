@@ -3,16 +3,25 @@
 
 #include "DHT11.cpp"
 
+#include "Commands\ParallelCommandExecuter.cpp"
+
 class Abyz_Fria
 {
 public:
-    int main()
+    void setup()
     {
-        return 0;
+        _primaryCommand.begin();
+    }
+
+    void loop()
+    {
+        _primaryCommand();
     }
 
 private:
     DHT11Sensor _dht11;
+
+    ParallelCommandExecuter _primaryCommand;
 };
 
 #endif

@@ -5,6 +5,10 @@
 
 class SequentialCommandExecuter : public CommandExecuter
 {
+protected:
+    virtual void setup() override {}
+    virtual void teardown() override {}
+
     void execute() override
     {
         if ((_commands.front().second)())
