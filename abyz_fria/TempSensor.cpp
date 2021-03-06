@@ -8,14 +8,13 @@ protected:
     int _pin;
 
 public:
-    TempSensor(int);
+    TempSensor(int pin) : _pin(pin)
+{
+}
 
     virtual float getTemperature() = 0;
     virtual float getHumidity() = 0;
 };
 
-TempSensor::TempSensor(int pin) : _pin(pin)
-{
-}
 
 #endif

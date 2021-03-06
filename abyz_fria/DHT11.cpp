@@ -5,8 +5,6 @@
 #include "Constants.cpp"
 #include <SimpleDHT.h>
 
-#include <StandardCplusplus.h>
-#include <stdexcept>
 
 class DHT11Sensor : public TempSensor
 {
