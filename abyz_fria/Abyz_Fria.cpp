@@ -3,6 +3,7 @@
 
 #include "DHT11.cpp"
 #include "Constants.cpp"
+#include "Logger.cpp"
 
 #include <SD.h>
 #include <arduino.h>
@@ -15,6 +16,8 @@ public:
         _canLoop = true;
 
         _canLoop &= setupSD();
+
+        _logger = Logger("log.csv");
     }
 
     void loop()
@@ -25,15 +28,14 @@ public:
             return;
         }
 
-        SDLib::File logFile = getLogFile();
-        if (logFile)
-        {
-            logLine(logFile, String(dhtTemp) + String(",") + String(humid));
-        }
+        String line[]{String(dhtTemp), String(humid)};
+        _logger.log(2, line);
     }
 
 private:
     DHT11Sensor _dht11;
+
+    Logger _logger;
 
     bool _canLoop;
 
@@ -62,16 +64,6 @@ private:
             dhtTemp = _dht11.getTemperature();
             humid = _dht11.getHumidity();
         }
-    }
-
-    SDLib::File getLogFile()
-    {
-        return SD.open("log.csv", FILE_WRITE);
-    }
-
-    void logLine(SDLib::File logFile, String param)
-    {
-        logFile.println(param);
     }
 };
 
