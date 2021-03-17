@@ -9,6 +9,13 @@ public:
     public:
         static const int kPin = -1; //TODO: set this
     };
+
+    class SD
+    {
+    public:
+        static const int kCSPin = 10;
+        static const int kPowPin = 8;
+    };
 };
 
 #endif
