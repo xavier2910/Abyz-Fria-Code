@@ -1,26 +1,24 @@
 #ifndef DHT11_h
 #define DHT11_h
 
-#include "TempSensor.cpp"
 #include "Constants.cpp"
 #include <SimpleDHT.h>
 
-
-class DHT11Sensor : public TempSensor
+class DHT11Sensor
 {
 public:
-    DHT11Sensor() : TempSensor(Constants::DHT11::kPin)
+    DHT11Sensor() : _pin(Constants::DHT11::kPin)
     {
     }
 
-    float getTemperature() override
+    float getTemperature()
     {
         float temp = 0;
         int err = _sensor.read2(_pin, &temp, NULL, NULL);
         return temp;
     }
 
-    float getHumidity() override
+    float getHumidity()
     {
         float humid = 0;
         int err = _sensor.read2(_pin, NULL, &humid, NULL);
@@ -29,6 +27,7 @@ public:
 
 private:
     SimpleDHT11 _sensor;
+    int _pin;
 };
 
 #endif

@@ -7,7 +7,7 @@ public:
     class DHT11
     {
     public:
-        static const int kPin = -1;
+        static const int kPin = -1; //TODO: set this
     };
 };
 
