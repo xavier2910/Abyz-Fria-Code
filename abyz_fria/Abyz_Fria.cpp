@@ -17,7 +17,7 @@ public:
 
         _canLoop &= setupSD();
 
-        _logger = Logger("log.csv");
+        _logger = Logger(Constants::SD::kFileName.c_str());
     }
 
     void loop()

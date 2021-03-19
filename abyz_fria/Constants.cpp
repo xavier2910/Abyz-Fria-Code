@@ -1,6 +1,8 @@
 #ifndef Constants_h
 #define Constants_h
 
+#include "arduino.h"
+
 class Constants
 {
 public:
@@ -15,6 +17,7 @@ public:
     public:
         static const int kCSPin = 10;
         static const int kPowPin = 8;
+        static const String kFileName = "log.csv";
     };
 };
 
