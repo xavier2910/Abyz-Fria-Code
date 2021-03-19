@@ -6,7 +6,8 @@
 #include "Logger.cpp"
 
 #include <SD.h>
-#include <arduino.h>
+#include <Arduino.h>
+#include <Adafruit_MPL3115A2.h>
 
 class Abyz_Fria
 {
@@ -15,9 +16,9 @@ public:
     {
         _canLoop = true;
 
-        _canLoop &= setupSD();
+        _canLoop = _canLoop && setupSD();
 
-        _logger = Logger(Constants::SD::kFileName.c_str());
+        _logger = Logger("log.csv");
     }
 
     void loop()
@@ -28,12 +29,19 @@ public:
             return;
         }
 
-        String line[]{String(dhtTemp), String(humid)};
-        _logger.log(2, line);
+        bool loopSuccess = true;
+
+        loopSuccess = loopSuccess && getSensorData();
+
+        String line[]{String(millis()),
+                      String(dhtTemp), String(humid),
+                      String(mplTemp), String(alt), String(pascals)};
+        loopSuccess = loopSuccess && _logger.log(6, line);
     }
 
 private:
     DHT11Sensor _dht11;
+    Adafruit_MPL3115A2 _mpl;
 
     Logger _logger;
 
@@ -41,6 +49,9 @@ private:
 
     float dhtTemp;
     float humid;
+    float mplTemp;
+    float alt;
+    float pascals;
 
     bool setupSD()
     {
@@ -57,13 +68,29 @@ private:
             return true;
     }
 
-    void getSensorData()
+    bool getSensorData()
     {
+        bool ret = true;
+
         if (millis() % 1000 == 0)
         {
             dhtTemp = _dht11.getTemperature();
             humid = _dht11.getHumidity();
         }
+
+        if (millis() % 250 == 0)
+        {
+            if (_mpl.begin())
+            {
+                mplTemp = _mpl.getTemperature();
+                alt = _mpl.getAltitude();
+                pascals = _mpl.getPressure();
+            }
+        }
+        else
+            ret = false;
+
+        return ret;
     }
 };
 

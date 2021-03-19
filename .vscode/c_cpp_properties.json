@@ -5,6 +5,7 @@
             "includePath": [
                 "C:\\Program Files (x86)\\Arduino\\tools\\**",
                 "C:\\Users\\Xavier\\Documents\\Arduino\\libraries\\**",
+                "C:\\Users\\Xavier\\Documents\\Arduino\\libraries\\Adafruit_MPL3115A2",
                 "C:\\Program Files (x86)\\Arduino\\libraries\\**",
                 "C:\\Program Files (x86)\\Arduino\\hardware\\tools\\**",
                 "C:\\Program Files (x86)\\Arduino\\hardware\\arduino\\avr\\**",
